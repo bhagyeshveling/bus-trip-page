@@ -1,0 +1,698 @@
+
+* {
+  box-sizing: border-box;
+} 
+
+#tripFormContainer {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}  
+
+#tripFormHeaderContainer {
+  margin-left: 20px;
+  padding: 10px; 
+  padding-bottom: 0px;
+  vertical-align: middle;
+} 
+
+#tripHeader {
+  font-size: 23px;
+  padding-left: 40px; 
+  vertical-align: middle; 
+} 
+
+#saveButton {
+   float: right;
+   margin-right: 117px;
+}
+
+#cancelButton {
+  float: right;
+  margin-right: -156px;
+} 
+
+#tripHeaderLine {
+  width: 100%; 
+  margin-top: 10px;
+}
+
+#tripInfoHeader {
+  margin-left: 0;
+  margin-top: 5px;
+}
+
+.form-group[id=nameFormField] {
+  margin-top: 20px;
+}
+
+#nameLabel #typeLabel {
+  margin-left: 11px;
+}
+
+.form-group[id=typeFormField] {
+  margin-top: 31px;
+}
+
+.form-group[id=daysFormField] {
+  margin-top: 31px;
+}
+
+#chipText{
+  display: inline-flex;
+  position: absolute; 
+  background-color: lightskyblue;
+  border-radius: 25px;
+  padding: 0 25px;
+  height: 36px;
+  line-height: 32px;
+  margin-top: 50px;
+  margin-left: 206px;
+}
+
+#chipContentText{
+  margin-top: -2px;
+  font-size: 14px;
+}
+
+#chipMonday {
+  display: inline-flex;
+  position: absolute; 
+  background-color: lightskyblue;
+  border-radius: 25px;
+  padding: 0 25px;
+  height: 42px;
+  width: 84px;
+  line-height: 32px;
+  margin-top: 10px;
+  margin-left: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipses; 
+} 
+
+#chipContentMonday {
+  margin-left: -16px;
+  margin-top: -2px;
+  font-size: 14px;
+}
+
+#mondayTime {
+  float: right;
+  margin-top: -19px;
+  margin-right: 6px;
+}
+
+#chipTuesday {
+ display: inline-flex;
+  position: absolute;
+  background-color: lightskyblue;
+  border-radius: 25px;
+  padding: 0 25px; 
+  height: 42px;
+  width: 88px; 
+  line-height: 32px;
+  margin-left: 96px;
+  margin-top: 10px; 
+} 
+
+#chipContentTuesday {
+  margin-top: -2px;
+  margin-left: -16px;
+  font-size: 14px;
+}
+
+#tuesdayTime {
+  float: right;
+  margin-top: -19px;
+  margin-right: 8px;
+}
+
+#chipWednesday {
+  display: inline-flex;
+  position: absolute;
+  background-color: lightskyblue;
+  border-radius: 25px;
+  padding: 0 25px;
+  height: 42px;
+  width: 108px; 
+  line-height: 32px;
+  margin-top: 10px;
+  margin-left: 189px;
+} 
+
+#chipContentWednesday {
+  margin-left: -16px;
+  margin-top: -2px;
+  font-size: 14px;
+}
+
+#wednesdayTime {
+  float: right;
+  margin-top: -19px;
+  margin-right: 16px;
+}
+
+#chipThursday {
+  display: inline-flex;
+  position: absolute; 
+  background-color: lightskyblue;
+  border-radius: 25px;
+  padding: 0 25px;
+  height: 42px;
+  width: 94px;
+  line-height: 32px;
+  margin-top: 10px;
+  margin-left: 302px;
+} 
+
+#chipContentThursday {
+  margin-left: -16px;
+  margin-top: -2px;
+  font-size: 14px;
+}
+
+#thursdayTime {
+  float: right;
+  margin-top: -19px;
+  margin-right: 11px;
+}
+
+#chipFriday {
+  display: inline-flex;
+  position: absolute;
+  background-color: lightskyblue;
+  border-radius: 25px;
+  padding: 0 25px;
+  height: 42px;
+  width: 75px;
+  line-height: 32px;
+  margin-top: 58px;
+  margin-left: 8px;
+} 
+
+#chipContentFriday {
+  margin-left: -16px;
+  margin-top: -2px;
+  font-size: 14px;
+}
+
+#fridayTime {
+  float: right;
+  margin-top: -19px;
+  margin-right: 2px;
+}
+
+#chipSaturday {
+  display: inline-flex;
+  position: absolute; 
+  background-color: lightskyblue;
+  border-radius: 25px;
+  padding: 0 25px;
+  height: 42px;
+  width: 92px;
+  line-height: 32px;
+  margin-top: 58px;
+  margin-left: 87px;
+} 
+
+#chipContentSaturday {
+  margin-left: -16px;
+  margin-top: -2px;
+  font-size: 14px;
+}
+
+#saturdayTime {
+  float: right;
+  margin-top: -19px;
+  margin-right: 9px;
+}
+
+#chipSunday {
+  display: inline-flex;
+  position: absolute; 
+  background-color: lightskyblue;
+  border-radius: 25px;
+  padding: 0 25px;
+  height: 42px;
+  width: 84px; 
+  line-height: 32px;
+  margin-top: 59px;
+  margin-left: 183px;
+} 
+
+#chipContentSunday {
+  margin-left: -16px;
+  margin-top: -2px;
+  font-size: 14px;
+}
+
+#sundayTime {
+  float: right;
+  margin-top: -19px;
+  margin-right: 6px;
+}
+
+.close {
+  margin-top: 6px;
+  margin-left: 3px;
+}
+
+#close-icon {
+  font-size: 18px;
+  margin-left: 56px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#close-icon:hover {
+  color: black;
+}
+
+#chipContentMonday > span {
+  margin-right: 7px;
+}
+
+#chipContentTuesday > span {
+  margin-right: 7px;
+}
+
+#chipContentWednesday > span {
+  margin-right: 16px;
+}
+
+#chipContentThursday > span {
+  margin-right: 10px;
+}
+
+#chipContentFriday > span {
+  margin-right: 7px;
+}
+
+#chipContentSaturday > span {
+  margin-right: 9px;
+}
+
+#chipContentSunday > span {
+  margin-right: 7px;
+}
+
+.chip {
+z-index: 3;
+} 
+
+.chip #dayTime {
+float: right;
+margin-top: -18px;
+}
+
+.close .material-icons:hover {
+color: black;
+}
+
+#inputChipField {
+position: relative;
+}
+
+ #textAreaFormField { 
+  max-width: 100%;
+  resize: both;
+} 
+
+#closeDaysButton {
+  margin-top: 8px;
+  position: absolute;
+  margin-left: 554px;
+  font-size: 25px;
+}
+
+#closeDaysButton:hover {
+  color: black;
+}
+
+input[type=checkbox] {
+  margin-left: -68px;
+  margin-top: 11px;
+}
+
+#allDaysLabel {
+  margin-top: 7px;
+  margin-left: -23px;
+} 
+
+#timeInput {
+  margin-left: -27px;
+}
+
+#tableLine {
+  margin-top: -20px;
+}
+
+.form-group[id=durationFormField] {
+  margin-top: 26px;
+}
+
+#durationLabel {
+  margin-top: 14px;
+}
+
+#durationTime {
+  margin-top: 7px;
+}
+
+.form-group[id=statusFormField] {
+  margin-top: 31px;
+}
+
+.form-group[id=vehicleFormField] {
+  margin-top: 20px;
+}
+
+#vehicleInfoHeader {
+  margin-left: 0;
+  margin-top: 21px;
+}
+
+#vehicleLabel {
+  margin-left: 1px; 
+}
+
+.form-group[id=driverFormField] {
+  margin-top: 44px;
+}
+
+#driverLabel {
+  margin-left: 1px;
+}
+
+  /* 2nd part css */
+
+#mapContainer {
+  float: right;
+}
+
+#getStopsHeader {
+  margin-top: 5px;
+}
+
+#numberLabelRadioField {
+  float: right;
+}
+
+#tripLabelSelectStops {
+  margin-left: 7px;
+}
+
+#tripSelectStops {
+  margin-left: 7px;
+}
+
+#fromDateFormField {
+  margin-top: 17px;
+}
+
+#endDateFormField {
+  margin-top: 20px;
+}
+
+#byVehicleRegNumberRadioField {
+  margin-top: 16px;
+  margin-left: -157px;
+}
+
+#closeByTripModalButton {
+  margin-left: 521px;
+  position: absolute;
+  font-size: 26px;
+}
+
+#closeByVehRegNumberModalButton {
+  margin-left: 521px;
+  position: absolute;
+  font-size: 26px;
+}
+
+#pickupDropHeader {
+  margin-right: 317px;
+  margin-top: 0px;
+}
+
+#map {
+  height: 600px;
+  width: 100%;
+  margin-top: -6px;
+}
+
+/* map css */
+
+.map-responsive {
+  overflow:hidden;
+  padding-bottom:50%;
+  position:relative;
+  height:0;
+  margin-left: 33px;
+}
+
+.map-responsive iframe {
+  left:0;
+  top:0;
+  height:100%;
+  width: 94.9%;
+  position:absolute;
+  display: inline-block;
+  overflow: hidden;
+}
+
+#add-button {
+  font-size: 13px;
+  width: 68px;
+  height: 28px;
+  margin-top: 9px;
+  margin-left: 15px;
+} 
+
+#add-icon {
+  margin-left: 0px;
+}
+
+#move-up-button {
+  font-size: 13px;
+  width: 101px;
+  height: 28px;
+  margin-left: 1px;
+  margin-top: 9px;
+}
+
+#move-up-icon {
+  margin-left: 0px;
+}
+
+#move-down-button {
+  font-size: 13px;
+  width: 116px;
+  height: 28px;
+  margin-left: 1px; 
+  margin-top: 9px;
+}
+
+#move-down-icon {
+  margin-left: 0px;
+}
+
+#delete-button {
+  font-size: 13px;
+  width: 82px;
+  height: 28px;
+  margin-left: 1px;
+  margin-top: 9px;
+}
+
+#delete-icon {
+  margin-left: 0px;
+}
+
+.table-responsive {
+  width: 100%;
+  float: right;
+  margin-top: 24px;
+}
+  
+.table-responsive .table .tbody .td {
+  width: 50%;
+}
+
+thead {
+  width: 50%;
+}
+
+#th-name {
+  width: 50%; 
+  text-align: center;
+}
+
+#th-radius {
+  text-align: center;
+  width: 35%;
+}
+
+td {
+  text-align: center;
+}
+
+@media (min-width: 992px) and (max-width: 1284px) {
+   #chipWednesday {
+    display: inline-flex;
+    position: absolute;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    padding: 0 25px;
+    height: 42px;
+    width: 108px; 
+    float: right;
+    line-height: 32px;
+    margin-top: 59px;
+    margin-left: 8px;
+   }
+   #chipThursday {
+    display: inline-flex;
+    position: absolute;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    padding: 0 25px;
+    height: 42px;
+    width: 98px; 
+    line-height: 32px;
+    margin-top: 59px;
+    margin-left: 120px;
+   }
+   #chipFriday {
+    display: inline-flex;
+    position: absolute;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    padding: 0 25px;
+    height: 42px;
+    width: 108px; 
+    line-height: 32px;
+    margin-top: 108px;
+    margin-left: 8px;
+   }
+   #chipSaturday {
+    display: inline-flex;
+    position: absolute;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    padding: 0 25px;
+    height: 42px;
+    width: 98px; 
+    line-height: 32px;
+    margin-top: 108px;
+    margin-left: 120px;
+   }
+   #chipSunday {
+    display: inline-flex;
+    position: absolute;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    padding: 0 25px;
+    height: 42px;
+    width: 108px; 
+    line-height: 32px;
+    margin-top: 156px;
+    margin-left: 8px;
+   }
+   #textAreaFormField {
+     height: 200px;
+   }
+}
+
+@media (min-width: 1285px) and (max-width: 1631px) {
+  #chipThursday {
+    display: inline-flex;
+    position: absolute;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    padding: 0 25px;
+    height: 42px;
+    width: 98px; 
+    line-height: 32px;
+    margin-top: 59px;
+    margin-left: 8px;
+   }
+   #chipFriday {
+    display: inline-flex;
+    position: absolute;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    padding: 0 25px;
+    height: 42px;
+    width: 108px; 
+    line-height: 32px;
+    margin-top: 59px;
+    margin-left: 110px;
+   }
+   #chipSaturday {
+    display: inline-flex;
+    position: absolute;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    padding: 0 25px;
+    height: 42px;
+    width: 98px; 
+    line-height: 32px;
+    margin-top: 108px;
+    margin-left: 8px;
+   }
+   #chipSunday {
+    display: inline-flex;
+    position: absolute;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    padding: 0 25px;
+    height: 42px;
+    width: 108px; 
+    line-height: 32px;
+    margin-top: 108px;
+    margin-left: 110px;
+   } 
+   #textAreaFormField {
+     height: 155px;
+   }
+}
+
+@media (min-width: 1400px) and (max-width: 1632px) {
+   #chipSaturday {
+    display: inline-flex;
+    position: absolute;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    padding: 0 25px;
+    height: 42px;
+    width: 98px; 
+    line-height: 32px;
+    margin-top: 59px;
+    margin-left: 222px;
+   }
+   #chipSunday {
+    display: inline-flex;
+    position: absolute;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    padding: 0 25px;
+    height: 42px;
+    width: 108px;
+    line-height: 32px;
+    margin-top: 108px;
+    margin-left: 8px;
+   } 
+}
+
+@media only screen and (max-width: 500px) {
+   #saveButton {
+     float: left;
+   }
+   #cancelButton {
+     float: left;
+     margin-left: -90px;
+   }
+}

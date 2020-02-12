@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+      <title>BusTrip Page</title>
+       
+       <!-- Latest compiled and minified CSS -->
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+       <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+   
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+       <link rel="stylesheet" href="trip-page.css">   
+
+       <!-- google map api -->
+       <script async defer 
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuVmgRD9CV0u1qZAt5c6R8FBIqniPi8pE&libraries=drawing&callback=initMap">
+       </script>
+
+       <script>
+          var citymap = {
+           malleshwaram: {
+            center: {lat: 13.0055, lng: 77.5692},
+            noOfStudents: 60
+           }, 
+          };
+  
+          function initMap() {
+            let map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: new google.maps.LatLng(12.9716,77.5946),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            streetViewControl: true,
+            rotateControl: true,
+             });
+
+        google.maps.event.addDomListener(window, 'load', initMap);
+  
+        var drawingManager = new google.maps.drawing.DrawingManager({
+           drawingMode: google.maps.drawing.OverlayType.CIRCLE,
+           drawingControl: false,
+           drawingControlOptions: {
+             position: google.maps.ControlPosition.TOP_CENTER,
+             drawingModes: [
+               google.maps.drawing.OverlayType.CIRCLE
+             ]
+           },
+           circleOptions: {
+             strokeColor: '#000000',
+             center: {lat: 12.9784, lng: 77.6408},
+             strokeOpacity: 0.8,
+             strokeWeight: 2,
+             fillColor: '#000000',
+             fillOpacity: 0.35,
+             radius: 1000,
+             clickable: true,
+             editable: true,
+             zIndex: 1
+           }
+         });
+         drawingManager.setMap(map);
+         document.getElementById('add-button').onclick = function() {
+          drawingManager.setOptions({
+              drawingControlOptions: {
+                  drawingModes: [google.maps.drawing.OverlayType.CIRCLE]
+              }
+          });
+          drawingManager.setDrawingMode(null);
+         } 
+         google.maps.event.addDomListener(window, 'load', initMap);
+     }
+      </script>
+
+      <script>
+        $(document).ready(function() {
+          $('.myInputModal').load('modal-widget.html');
+        });
+      </script>
+
+      <script>
+        $(function () {
+          $('#fromDateTimePicker').datetimepicker({
+            format: 'MM/DD/YYYY HH:mm'
+          });
+          $('#endDateTimePicker').datetimepicker({
+            format: 'MM/DD/YYYY HH:mm'
+          });
+        });
+     </script>
+     
+    </head>
+    <body>
+
+    <div class="container-fluid" id="tripFormContainer">
+       
+      <div class="container-fluid" id="tripFormHeaderContainer"> 
+
+        <div class="row">
+          <div class="col-md-6">
+            <button class="btn btn-primary" id="goBackButton">
+              <i class="fa fa-arrow-left"></i>
+            </button>
+            <span id="tripHeader">Create Trip</span>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-primary" id="saveButton">Save</button>
+            <button class="btn btn-danger" id="cancelButton">Cancel</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <hr id="tripHeaderLine">
+          </div>
+        </div> 
+
+      </div>
+
+     <div class="container-fluid" id="tripFormBodyContainer">
+
+        <div class="container col-md-4" id="tripInfoContainer">
+
+          <form>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <h4 id="tripInfoHeader" class="text-primary">Trip Information</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" id="nameFormField">
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name" class="control-label text-muted" id="nameLabel">Name</label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" id="typeFormField">
+              <div class="row">
+                <div class="col-md-2">
+                  <label id="typeLabel" class="control-label text-muted">Type</label>
+                </div>
+                <div class="col-md-10">
+                  <label class="radio-inline">
+                    <input type="radio" name="radio" value="pickup">Pickup
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="radio" value="drop">Drop
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="myInputModal"></div> 
+            </div>
+    
+            <div class="form-group" id="durationFormField">
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label text-muted" id="durationLabel">Duration</label> 
+                </div>
+                <div class="col-md-3">
+                  <input type="time" class="form-control" id="durationTime" name="duration" data-format="HH:mm" data-template="HH : mm" value="00:00"> 
+                </div>
+              </div>
+            </div> 
+
+            <div class="form-group" id="statusFormField">
+              <div class="row">
+                <div class="col-md-2">
+                  <label id="statusLabel" class="control-label text-muted">Status</label>
+                </div>
+                <div class="col-md-10">
+                  <label class="radio-inline">
+                    <input type="radio" name="radio" value="enabled">Enabled
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="radio" value="disabled">Disabled
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-5">
+                  <h4 id="vehicleInfoHeader" class="text-primary">Vehicle Information</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" id="vehicleFormField">
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label text-muted" id="vehicleLabel">Vehicle</label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" class="form-control">
+                </div>
+              </div> 
+            </div>
+
+            <div class="form-group" id="driverFormField">
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label text-muted" id="driverLabel">Driver</label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+            
+          </form>
+
+        </div>
+
+        <div class="container col-md-8" id="mapContainer">
+
+          <form>
+
+            <div class="form-group" id="getStopsRadioField">
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 class="text-primary" id="getStopsHeader">Get Stops From History</h4>
+                </div>
+              </div> 
+              <div class="row">
+                <div class="col-md-1">
+                  <label class="radio-inline">
+                    <input type="radio" name="tripradio" data-toggle="modal" data-target="#byTripModal" value="bytripradio">
+                      By Trip
+                  </label>
+                  <div class="modal fade" id="byTripModal" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" id="closeByTripModalButton" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title text-primary">Get stops from history</h4>
+                        </div>
+                        <div class="modal-body">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label id="tripLabelSelectStops" class="text-primary">Select Trip</label>
+                                  <select class="form-control" id="tripSelectStops" name="trip-select1">
+                                    <option value=" "></option>
+                                    <option value="Sanjaynagar">Sanjaynagar</option>
+                                    <option value="jpnagar">J.P. Nagar</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-primary" type="button">Get Stops</button>
+                          <button class="btn btn-danger" type="button">Cancel</button>    
+                        </div> 
+                      </div>                     
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-11">
+                  <label class="radio-inline">
+                    <input type="radio" name="tripradio" data-toggle="modal" data-target="#byVehRegNumberModal" value="byvehregradio">
+                      By Vehicle Registration Number
+                  </label>
+                  <div class="modal fade" id="byVehRegNumberModal" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" id="closeByVehRegNumberModalButton" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title text-primary" id="exampleModalTitle">Get stops from history</h4>
+                        </div>
+                        <div class="modal-body">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label id="tripLabelSelectVehicles" class="text-primary">Select Vehicle</label>
+                                  <select class="form-control" id="tripSelectVehicles" name="trip-select2">
+                                    <option value=" "></option>
+                                    <option value="KA-02-BG-5544">KA-02-BG-5544</option>
+                                    <option value="KA-04-MG-2222">KA-04-MG-2222</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row" id="fromDateFormField">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label id="fromDateLabel" class="text-primary">From Date</label>
+                                  <input type="text" class="form-control" id="fromDateTimePicker"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row" id="endDateFormField">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label id="endDateLabel" class="text-primary">End Date</label>
+                                  <input type="text" class="form-control" id="endDateTimePicker"/>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-primary" type="button">Get Stops</button>
+                          <button class="btn btn-danger" type="button">Cancel</button>                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group"> 
+              <div class="row">
+                <div class="col-md-6"> 
+                  <h4 id="pickupDropHeader" class="text-primary">Pickup/Drop Points</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group"> 
+              <div class="row">
+                <div class="col-md-12">
+                  <div id="map"></div>
+                </div>
+              </div>
+            </div> 
+
+            <button type="button" class="btn btn-primary btn-sm addMe" id="add-button" onclick="">
+              Add 
+              <i class="fa fa-plus" id="add-icon" aria-hidden="true"></i>
+            </button> 
+            <button type="button" class="btn btn-primary btn-sm" id="move-up-button" onclick="">
+              Move Up
+              <i class="fa fa-arrow-up" aria-hidden="true" id="move-up-icon"></i>
+            </button> 
+            <button type="button" class="btn btn-primary btn-sm" id="move-down-button" onclick="">
+              Move Down
+              <i class="fa fa-arrow-down" aria-hidden="true" id="move-down-icon"></i>
+            </button> 
+            <button type="button" class="btn btn-primary btn-sm" id="delete-button" onclick=""> 
+              Delete
+              <i class="fa fa-times" aria-hidden="true" id="delete-icon"></i>
+            </button> 
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="table-responsive">
+                    <table class="table table-md table-hover table-bordered table-condensed">
+                      <thead class="thead-trip">
+                        <tr>
+                          <th scope="col" id="th-name" class="text-primary">Name</th>
+                          <th scope="col" id="th-radius" class="text-primary">Radius</th>
+                        </tr>
+                      </thead>
+                      <tbody class="tbody-trip">
+                        <tr>
+                          <td class="text-muted">Sanjaynagar</td>
+                          <td class="text-muted">850 m</td>
+                        </tr>
+                        <tr>
+                          <td class="text-muted">J.P. Nagar</td>
+                          <td class="text-muted">1000 m</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </form>
+        
+        </div>
+    
+      </div> 
+      
+    </div>
+      
+  </body>
+</html>

@@ -1,0 +1,190 @@
+
+     <div class="form-group" id="daysFormField">
+       <div class="row">
+         <div class="col-md-2">
+           <label class="text-muted" id="daysLabel">Days</label>
+         </div>
+         <div class="col-md-10" id="inputChipField">
+           <div class="chip" id="chipMonday">
+             <div class="chip-content" id="chipContentMonday">Monday<span id="dayTime">00:00</span></div>
+               <i class="close material-icons" onclick="this.parentElement.style.display='none'">&times;</i>
+           </div>
+           <div class="chip" id="chipTuesday">
+             <div class="chip-content" id="chipContentTuesday">Tuesday<span id="dayTime">00:00</span></div>
+             <i class="close material-icons" onclick="this.parentElement.style.display='none'">&times;</i>
+           </div>
+           <div class="chip" id="chipWednesday">
+             <div class="chip-content" id="chipContentWednesday">Wednesday<span id="dayTime">00:00</span></div>
+             <i class="close material-icons" onclick="this.parentElement.style.display='none'">&times;</i>
+           </div>
+           <div class="chip" id="chipThursday">
+             <div class="chip-content" id="chipContentThursday">Thursday<span id="dayTime">00:00</span></div>
+             <i class="close material-icons" onclick="this.parentElement.style.display='none'">&times;</i>
+           </div>
+           <div class="chip" id="chipFriday">
+             <div class="chip-content" id="chipContentFriday">Friday<span id="dayTime">00:00</span></div>
+             <i class="close material-icons" onclick="this.parentElement.style.display='none'">&times;</i>
+           </div>
+           <div class="chip" id="chipSaturday">
+             <div class="chip-content" id="chipContentSaturday">Saturday<span id="dayTime">00:00</span></div>
+             <i class="close material-icons" onclick="this.parentElement.style.display='none'">&times;</i>
+           </div>
+           <div class="chip" id="chipSunday">
+             <div class="chip-content" id="chipContentSunday">Sunday<span id="dayTime">00:00</span></div>
+             <i class="close material-icons" onclick="this.parentElement.style.display='none'">&times;</i>
+           </div> 
+           <textarea class="form-control" id="textAreaFormField" rows="5" data-toggle="modal" data-target="#selectionModal"></textarea> 
+         </div>
+       </div>
+     </div> 
+     
+  
+          <div class="modal fade" id="selectionModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <button class="close" id="closeDaysButton" data-dismiss="modal">&times;</button>
+                <div class="modal-header">
+                  <table class="table table-hover table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-primary">Select All</th>
+                        <th scope="col" class="text-primary" id="days-th">Days</th>
+                        <th scope="col" class="text-primary">Timings</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <input class="form-check-input" type="checkbox" value="alldays" checked>
+                        </td>
+                        <td>
+                          <label for="alldays" class="col-sm-2 control-label text-muted" id="allDaysLabel">Alldays</label> 
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <input type="time" class="form-control" id="timeInput" name="time" data-format="HH:mm" data-template="HH : mm" value="00:00">   
+                            </div>
+                          </div>
+                        </td> 
+                      </tr>
+                      <tr>
+                        <td>
+                          <input class="form-check-input" type="checkbox" value="monday" checked>
+                        </td>
+                        <td>
+                          <label for="day1" class="col-sm-2 control-label text-muted" id="allDaysLabel">Monday</label> 
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <input type="time" class="form-control" id="timeInput" name="time" data-format="HH:mm" data-template="HH : mm" value="00:00">  
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input class="form-check-input" type="checkbox" value="tuesday" checked>
+                        </td>
+                        <td>
+                          <label for="day2" class="col-sm-2 control-label text-muted" id="allDaysLabel">Tuesday</label> 
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <input type="time" class="form-control" id="timeInput" name="time" data-format="HH:mm" data-template="HH : mm" value="00:00"> 
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input class="form-check-input" type="checkbox" value="wednesday" checked>
+                        </td>
+                        <td>
+                          <label for="day3" class="col-sm-2 control-label text-muted" id="allDaysLabel">Wednesday</label> 
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <input type="time" class="form-control" id="timeInput" name="time" data-format="HH:mm" data-template="HH : mm" value="00:00"> 
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input class="form-check-input" type="checkbox" value="thursday" checked>
+                        </td>
+                        <td>
+                          <label for="day4" class="col-sm-2 control-label text-muted" id="allDaysLabel">Thursday</label> 
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <input type="time" class="form-control" id="timeInput" name="time" data-format="HH:mm" data-template="HH : mm" value="00:00"> 
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input class="form-check-input" type="checkbox" value="friday" checked>
+                        </td>
+                        <td>
+                          <label for="day5" class="col-sm-2 control-label text-muted" id="allDaysLabel">Friday</label> 
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <input type="time" class="form-control" id="timeInput" name="time" data-format="HH:mm" data-template="HH : mm" value="00:00"> 
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input class="form-check-input" type="checkbox" value="saturday" checked>
+                        </td>
+                        <td>
+                          <label for="day6" class="col-sm-2 control-label text-muted" id="allDaysLabel">Saturday</label> 
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <input type="time" class="form-control" id="timeInput" name="time" data-format="HH:mm" data-template="HH : mm" value="00:00"> 
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input class="form-check-input" type="checkbox" value="sunday" checked>
+                        </td>
+                        <td>
+                          <label for="day7" class="col-sm-2 control-label text-muted" id="allDaysLabel">Sunday</label> 
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <input type="time" class="form-control" id="timeInput" name="time" data-format="HH:mm" data-template="HH : mm" value="00:00"> 
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                   </table>
+                   <hr id="tableLine">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" id="addData" data-toggle="modal" data-target="#myModal">
+                       Add
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div> 
+ 
